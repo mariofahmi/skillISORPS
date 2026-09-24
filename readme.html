@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>README - Skill RPS UNIROW OBE 2026 | Generator Rencana Pembelajaran Semester</title>
+  <meta name="description" content="Dokumentasi resmi README Skill RPS UNIROW OBE 2026 untuk Google Antigravity, Cursor IDE, dan Claude Code.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .docs-layout {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 40px;
+      padding: 40px 0 80px;
+    }
+    .docs-sidebar {
+      position: sticky;
+      top: 100px;
+      height: fit-content;
+      max-height: calc(100vh - 120px);
+      overflow-y: auto;
+      padding-right: 16px;
+    }
+    .toc-title {
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+    .toc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .toc-link {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+      display: block;
+      border-left: 2px solid transparent;
+    }
+    .toc-link:hover, .toc-link.active {
+      color: var(--accent-primary);
+      background: rgba(99, 102, 241, 0.08);
+      border-left-color: var(--accent-primary);
+    }
+    .docs-article {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: 48px;
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadow-md);
+    }
+    .docs-header {
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 24px;
+      margin-bottom: 36px;
+    }
+    .docs-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(99, 102, 241, 0.15);
+      color: #a5b4fc;
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .docs-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+    .docs-lead {
+      font-size: 1.12rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+    .markdown-body h2 {
+      font-size: 1.55rem;
+      font-weight: 800;
+      margin: 36px 0 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .markdown-body h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin: 24px 0 12px;
+      color: var(--text-primary);
+    }
+    .markdown-body p {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+    .markdown-body ul {
+      padding-left: 24px;
+      margin-bottom: 20px;
+      color: var(--text-secondary);
+    }
+    .markdown-body li {
+      margin-bottom: 8px;
+      line-height: 1.7;
+    }
+    .markdown-body code:not(pre code) {
+      font-family: var(--font-mono);
+      background: rgba(99, 102, 241, 0.12);
+      color: #38bdf8;
+      padding: 3px 7px;
+      border-radius: 5px;
+      font-size: 0.88rem;
+      border: 1px solid rgba(99, 102, 241, 0.2);
+    }
+    .code-wrapper {
+      position: relative;
+      margin: 18px 0;
+    }
+    .code-wrapper pre {
+      background: #090d16;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      overflow-x: auto;
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
+    .btn-code-copy {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      padding: 5px 10px;
+      border-radius: var(--radius-sm);
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .btn-code-copy:hover {
+      background: var(--accent-primary);
+      color: #ffffff;
+    }
+    .callout {
+      background: rgba(99, 102, 241, 0.08);
+      border-left: 4px solid var(--accent-primary);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: 18px 22px;
+      margin: 24px 0;
+    }
+    .callout-title {
+      font-weight: 700;
+      color: #a5b4fc;
+      margin-bottom: 6px;
+    }
+    .callout p {
+      margin: 0;
+      font-size: 0.94rem;
+    }
+    @media (max-width: 900px) {
+      .docs-layout { grid-template-columns: 1fr; }
+      .docs-sidebar { display: none; }
+      .docs-article { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand">
+        <img src="assets/logo_unirow.png" alt="Logo UNIROW" class="brand-logo" onerror="this.style.display='none'">
+        <span>SkillISORPS</span>
+        <span class="brand-badge">OBE 2026</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">← Beranda Portal</a></li>
+        <li><a href="#fitur">Fitur Standar Mutu</a></li>
+        <li><a href="#struktur">Struktur Berkas</a></li>
+        <li><a href="#instalasi">Instalasi</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button id="themeToggle" class="btn-icon" aria-label="Toggle Theme" type="button">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+        <a href="https://github.com/mariofahmi/skillISORPS" target="_blank" rel="noopener noreferrer" class="btn-github">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Content Layout -->
+  <main class="container docs-layout">
+    <aside class="docs-sidebar">
+      <div class="toc-title">Daftar Isi README</div>
+      <ul class="toc-list">
+        <li><a href="#ringkasan" class="toc-link">📌 Ringkasan RPS</a></li>
+        <li><a href="#fitur" class="toc-link">🌟 Fitur & Mutu</a></li>
+        <li><a href="#struktur" class="toc-link">📁 Struktur Berkas</a></li>
+        <li><a href="#instalasi" class="toc-link">🚀 Prasyarat & Instalasi</a></li>
+        <li><a href="#penggunaan" class="toc-link">💻 Cara Penggunaan</a></li>
+        <li><a href="#lisensi" class="toc-link">📄 Lisensi & Kontributor</a></li>
+      </ul>
+    </aside>
+
+    <article class="docs-article markdown-body">
+      <header id="ringkasan" class="docs-header">
+        <div class="docs-badge">Google Antigravity Custom Skill v1.0</div>
+        <h1 class="docs-title">RPS UNIROW — Generator RPS OBE 2026</h1>
+        <p class="docs-lead">
+          Modul kecerdasan buatan untuk Google Antigravity, Cursor IDE, dan Claude Code guna menyusun, mengisi, dan memformat dokumen 
+          <strong>Rencana Pembelajaran Semester (RPS)</strong> sesuai format baku dan standar mutu 
+          <strong>Universitas PGRI Ronggolawe (UNIROW) Tuban</strong> berbasis kurikulum <strong>OBE 2026</strong>.
+        </p>
+      </header>
+
+      <section id="fitur">
+        <h2>🌟 Fitur Utama & Standar Mutu</h2>
+        <h3>1. Format Baku A4 Landscape (100% Sesuai Template Resmi)</h3>
+        <ul>
+          <li>Orientasi <strong>A4 Landscape</strong> penuh (<code>w="16838" h="11909"</code> dxa).</li>
+          <li>Margin halaman presisi: Atas/Bawah <code>39.6 pt</code>, Kiri/Kanan <code>43.2 pt</code>.</li>
+          <li>Tipografi elegan <strong>Cambria</strong> (Body 10.5 pt, Header 11 pt, Judul 12 pt bold).</li>
+          <li>Garis tabel single-line warna <code>#B0B5B3</code> (0.5 pt) dengan padding sel proporsional.</li>
+        </ul>
+
+        <h3>2. Anatomi Dokumen Lengkap (4 Komponen Baku)</h3>
+        <ul>
+          <li><strong>Tabel 0: Identitas, Otorisasi, CPL-CPMK & Korelasi (20 Baris)</strong>: Memuat KOP resmi, Sub-CPMK berlabel taksonomi Bloom (contoh: <code>[C4, A3]</code>), dan tabel bersarang matriks korelasi CPL terhadap Sub-CPMK (18 baris).</li>
+          <li><strong>Tabel 1: Silabus 16 Minggu</strong>: Sesi perkuliahan terstruktur dengan beban belajar SN-Dikti Permendikbudristek No. 53/2023 (UTS di Mg 8 & UAS di Mg 16 masing-masing bobot 25%).</li>
+          <li><strong>Tabel 2: Rubrik Penilaian Holistik</strong>: 4 kriteria (Pemahaman Konsep 40%, Analisis Kritis 30%, Aplikasi Konteks Lokal 20%, Sistematika & Komunikasi 10%).</li>
+          <li><strong>Bagian Evaluasi, Skala 7, Soal UAS & Lembar Pengesahan</strong>: Standar nilai A s.d. E (batas lulus C 56.00) dan 5 butir soal UAS berbasis HOTS.</li>
+        </ul>
+
+        <div class="callout">
+          <div class="callout-title">Ketentuan Waktu Belajar SN-Dikti</div>
+          <p>
+            - Tatap Muka (PB): sks × 50 menit/minggu.<br>
+            - Penugasan Terstruktur (PT): sks × 60 menit/minggu.<br>
+            - Belajar Mandiri (KM): sks × 60 menit/minggu.
+          </p>
+        </div>
+      </section>
+
+      <section id="struktur">
+        <h2>📁 Struktur Berkas Skill</h2>
+        <div class="code-wrapper">
+          <button class="btn-code-copy" onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText); alert('Tersalin!');">Salin</button>
+<pre><code>rps-unirow/
+├── SKILL.md                          # Definisi instruksi skill & panduan operasional AI
+├── README.md                         # Dokumentasi repository publik
+├── assets/
+│   ├── Template_RPS_UNIROW.docx      # Master template Word A4 Landscape resmi
+│   └── Template_RPS_UNIROW_OLD.docx  # Template pembanding arsip DIKTI
+├── references/
+│   └── placeholder_map.md            # Peta pemetaan placeholder & sel tabel
+└── scripts/
+    └── build_rps.py                  # Engine generator otomatis dokumen Word (.docx)</code></pre>
+        </div>
+      </section>
+
+      <section id="instalasi">
+        <h2>🚀 Prasyarat & Instalasi</h2>
+        <h3>1. Prasyarat Sistem</h3>
+        <p>Python 3.8+ dan library <code>python-docx</code>:</p>
+        <div class="code-wrapper">
+          <button class="btn-code-copy" onclick="navigator.clipboard.writeText('pip install python-docx'); alert('Tersalin!');">Salin</button>
+<pre><code>pip install python-docx</code></pre>
+        </div>
+
+        <h3>2. Pasang di Google Antigravity</h3>
+        <div class="code-wrapper">
+          <button class="btn-code-copy" onclick="navigator.clipboard.writeText('git clone https://github.com/mariofahmi/skillISORPS.git .agents/skills/rps-unirow'); alert('Tersalin!');">Salin</button>
+<pre><code>git clone https://github.com/mariofahmi/skillISORPS.git .agents/skills/rps-unirow</code></pre>
+        </div>
+      </section>
+
+      <section id="penggunaan">
+        <h2>💻 Cara Penggunaan</h2>
+        <h3>1. Melalui Chat AI</h3>
+        <div class="code-wrapper">
+          <button class="btn-code-copy" onclick="navigator.clipboard.writeText('/rps-unirow buatkan RPS mata kuliah Hukum Tata Negara 4 SKS'); alert('Tersalin!');">Salin Prompt</button>
+<pre><code>/rps-unirow buatkan RPS mata kuliah Hukum Tata Negara 4 SKS untuk Semester 3 kurikulum OBE 2026</code></pre>
+        </div>
+
+        <h3>2. Melalui CLI Python</h3>
+        <div class="code-wrapper">
+          <button class="btn-code-copy" onclick="navigator.clipboard.writeText('py \".agents\\skills\\rps-unirow\\scripts\\build_rps.py\"'); alert('Tersalin!');">Salin</button>
+<pre><code>py ".agents\skills\rps-unirow\scripts\build_rps.py"</code></pre>
+        </div>
+      </section>
+
+      <section id="lisensi">
+        <h2>📄 Lisensi & Kontributor</h2>
+        <p><strong>Pengembang:</strong> Mario Fahmi Syahrial, M.Pd. (Program Studi PPKn, FKIP UNIROW Tuban)</p>
+        <p><strong>Kompatibilitas:</strong> Google Antigravity, Cursor IDE, Claude Code</p>
+      </section>
+    </article>
+  </main>
+
+  <footer class="footer container">
+    <p><strong>Skill RPS UNIROW OBE 2026</strong> — Program Studi PPKn FKIP Universitas PGRI Ronggolawe Tuban</p>
+  </footer>
+</body>
+</html>
