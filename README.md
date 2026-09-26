@@ -92,6 +92,13 @@ AI akan secara otomatis memetakan CPL, merumuskan CPMK & Sub-CPMK berlabel Bloom
 py ".agents\skills\rps-unirow\scripts\build_rps.py"
 ```
 
+### 3. Melalui Simulator & Portal Web Interaktif
+Kunjungi live demo di: **[https://mariofahmi.github.io/skillISORPS/](https://mariofahmi.github.io/skillISORPS/)**
+- **Unduh Word (.docx)**: Ekspor dokumen OpenXML `.docx` asli kurikulum OBE 2026 secara instan langsung di peramban (client-side via JSZip engine).
+- **Cetak / Ekspor PDF A4 Landscape**: Tata letak WYSIWYG A4 Landscape 100% presisi untuk langsung dicetak atau disimpan ke format PDF.
+- **Salin Markdown RPS**: Salin naskah ringkasan terstruktur untuk integrasi cepat ke LMS / catatan dosen.
+
+
 ---
 
 ## 📄 Lisensi & Kontributor
