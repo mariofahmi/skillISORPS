@@ -1,6 +1,6 @@
 # RPS UNIROW — Generator Rencana Pembelajaran Semester OBE 2026
 
-Modul kecerdasan buatan (*custom skill*) untuk Google Antigravity, Cursor IDE, dan Claude Code guna menyusun, mengisi, dan memformat dokumen **Rencana Pembelajaran Semester (RPS)** sesuai format baku dan standar mutu **Universitas PGRI Ronggolawe (UNIROW) Tuban** berbasis kurikulum **OBE (*Outcome-Based Education*) 2026**.
+"Artificial intelligence module (custom skill) for Google Antigravity, Cursor IDE, and Claude Code to compile, populate, and format Semester Learning Plan (RPS) documents compliant with the standard format and quality standards of Universitas PGRI Ronggolawe (UNIROW) Tuban, based on the 2026 OBE (Outcome-Based Education) curriculum.
 
 ---
 
