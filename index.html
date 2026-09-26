@@ -877,7 +877,11 @@
   <nav class="navbar">
     <div class="container nav-container">
       <a href="index.html" class="brand">
-        <img src="assets/logo_unirow.png" alt="Logo" class="brand-logo" onerror="this.style.display='none'">
+        <div class="brand-logos">
+          <img src="assets/logo_unirow.png" alt="Logo UNIROW" class="brand-logo" onerror="this.style.display='none'">
+          <div class="logo-divider"></div>
+          <img src="assets/logo_mf.png" alt="Logo MF" class="brand-logo logo-mf" onerror="this.style.display='none'">
+        </div>
         <span>Generator RPS Kurikulum OBE 2026</span>
         <span class="brand-badge">A4 Landscape</span>
       </a>
@@ -904,10 +908,6 @@
   <!-- Hero -->
   <header class="hero">
     <div class="container">
-      <div class="hero-pill">
-        <span class="hero-pill-dot"></span>
-        <span>Format Resmi 100% Presisi • Kurikulum OBE 2026 • Standar Mutu ISO</span>
-      </div>
 
       <h1 class="hero-title">
         Generator Rencana Pembelajaran Semester (RPS) <br>
@@ -1002,7 +1002,13 @@
 
           <div class="form-group">
             <label>Rumpun Mata Kuliah</label>
-            <input type="text" id="inpRumpun" class="form-input" oninput="updateRPSPreview()">
+            <select id="inpRumpun" class="form-select" onchange="updateRPSPreview()">
+              <option value="Mata Kuliah Keilmuan dan Keterampilan (MKK PPKn)">Mata Kuliah Keilmuan dan Keterampilan (MKK PPKn)</option>
+              <option value="Mata Kuliah Kependidikan (MKK)">Mata Kuliah Kependidikan (MKK)</option>
+              <option value="Mata Kuliah Wajib Universitas (MKWU)">Mata Kuliah Wajib Universitas (MKWU)</option>
+              <option value="Mata Kuliah Keilmuan Hukum PPKn">Mata Kuliah Keilmuan Hukum PPKn</option>
+              <option value="Mata Kuliah Keilmuan dan Keterampilan PPKn (MKK)">Mata Kuliah Keilmuan dan Keterampilan PPKn (MKK)</option>
+            </select>
           </div>
 
           <div class="form-group">
@@ -1588,7 +1594,19 @@
       setVal('inpKode', c.code);
       setVal('inpSKS', c.sks);
       setVal('inpSem', c.sem);
-      setVal('inpRumpun', c.rumpun || 'Mata Kuliah Kependidikan (MKK)');
+      const elRumpun = document.getElementById('inpRumpun');
+      if (elRumpun) {
+        let rVal = (c.rumpun || 'Mata Kuliah Keilmuan dan Keterampilan (MKK PPKn)').trim();
+        if (rVal.endsWith('))')) rVal = rVal.slice(0, -1);
+        elRumpun.value = rVal;
+        if (!elRumpun.value) {
+          const opt = document.createElement('option');
+          opt.value = rVal;
+          opt.textContent = rVal;
+          elRumpun.appendChild(opt);
+          elRumpun.value = rVal;
+        }
+      }
       setVal('inpDosen', c.dosen);
       setVal('inpKoor', c.koordinator || 'Dwi Wahyu Kartikasari, M.Pd.');
       setVal('inpKaprodi', c.kaprodi || 'Mario Fahmi Syahrial, M.Pd.');
