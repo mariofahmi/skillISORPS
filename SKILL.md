@@ -20,8 +20,10 @@ Dokumen acuan standar mutu: `01_1_RPS_Antropologi Budaya_OBE.docx` (Kurikulum OB
 Template dasar: `assets/Template_RPS_UNIROW.docx`.
 Peta placeholder & anatomi tabel: `references/placeholder_map.md`.
 Script otomasi generator: `scripts/build_rps.py`.
+Live Simulator & Generator Web: [https://mariofahmi.github.io/skillISORPS/#pratinjau](https://mariofahmi.github.io/skillISORPS/#pratinjau)
+Katalog Terintegrasi: 63 Mata Kuliah Kurikulum OBE 2026 (Semester 1–7).
 
-Skill ini menghasilkan dokumen `.docx` RPS yang **identik secara format, tata letak, dan tipografi** dengan standar resmi kampus UNIROW Tuban.
+Skill ini menghasilkan dokumen `.docx` RPS yang **identik secara format, tata letak, dan tipografi** dengan standar mutu resmi kurikulum OBE 2026, serta selaras 100% dengan portal simulator web presisi.
 
 ---
 
