@@ -1268,17 +1268,17 @@
                TABEL 0: IDENTITAS & PENGESAHAN (20 BARIS)
                ========================================== -->
           <table class="rps-table-landscape">
-            <!-- R00: KOP & Logo (Presisi KOP 3-Kolom Resmi Standar Mutu UNIROW) -->
-            <tr>
-              <td style="width: 10%; text-align: center; vertical-align: middle; padding: 6px;">
+            <!-- R00: KOP & Logo (Presisi KOP 3-Kolom Resmi Standar Mutu UNIROW - Background #F2F4F4) -->
+            <tr style="background: #F2F4F4;">
+              <td style="width: 11.5%; text-align: center; vertical-align: middle; padding: 6px; background: #F2F4F4;">
                 <img src="assets/logo_unirow.png" alt="Logo UNIROW" style="width: 60px; height: 62px; object-fit: contain;" onerror="this.style.display='none'">
               </td>
-              <td colspan="6" style="text-align: center; vertical-align: middle; padding: 8px 12px;">
+              <td colspan="6" style="text-align: center; vertical-align: middle; padding: 8px 12px; background: #F2F4F4;">
                 <div style="font-size: 11pt; font-weight: bold; letter-spacing: 0.02em; line-height: 1.3;">UNIVERSITAS PGRI RONGGOLAWE TUBAN</div>
                 <div style="font-size: 10.5pt; font-weight: bold; line-height: 1.3;">FAKULTAS KEGURUAN DAN ILMU PENDIDIKAN</div>
                 <div style="font-size: 10pt; font-weight: bold; line-height: 1.3;">PROGRAM STUDI PENDIDIKAN PANCASILA DAN KEWARGANEGARAAN</div>
               </td>
-              <td style="width: 18%; text-align: center; vertical-align: middle; font-weight: bold; font-size: 10pt; padding: 6px; line-height: 1.3;" id="prevKodeDokumen">
+              <td style="width: 14%; text-align: center; vertical-align: middle; font-weight: bold; font-size: 10.5pt; padding: 6px 8px; line-height: 1.3; background: #F2F4F4; word-break: break-word;" id="prevKodeDokumen">
                 PPKn/I/PKN/MKK<br>PPKn
               </td>
             </tr>
@@ -1701,9 +1701,39 @@
 
     let currentCourse = coursesData[0];
 
+    function populateHeroCourseSelect() {
+      const heroSelect = document.getElementById('heroCourseSelect');
+      if (!heroSelect || typeof coursesData === 'undefined') return;
+      heroSelect.innerHTML = '<option value="" disabled selected>-- Pilih Mata Kuliah untuk Langsung Dilihat di Pratinjau --</option>' + 
+        coursesData.map(c => `<option value="${c.code}">[Sem ${c.sem}] ${c.code} - ${c.name} (${c.sks} SKS)</option>`).join('');
+    }
+
+    function heroJumpToPreview(code) {
+      if (!code) return;
+      const found = coursesData.find(c => c.code === code);
+      if (found) {
+        loadCourseToSimulator(found);
+        const sel = document.getElementById('courseSelect');
+        if (sel) sel.value = code;
+      }
+      const pElem = document.getElementById('pratinjau');
+      if (pElem) pElem.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function heroJumpBtnClick() {
+      const heroSelect = document.getElementById('heroCourseSelect');
+      if (heroSelect && heroSelect.value) {
+        heroJumpToPreview(heroSelect.value);
+      } else {
+        const pElem = document.getElementById('pratinjau');
+        if (pElem) pElem.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
     function initApp() {
       renderCatalog(coursesData);
       populateCourseSelect(coursesData);
+      populateHeroCourseSelect();
       loadCourseToSimulator(coursesData[0]);
     }
 
@@ -1861,12 +1891,22 @@
       setTxt('prevKoor', koor);
       setTxt('prevKaprodi', kaprodi);
 
-      // Dynamic Roman Numeral Document Code in KOP Right Box (Sesuai build_rps.py)
+      // Dynamic Roman Numeral Document Code in KOP Right Box (Sesuai 01_2_RPS_Ilmu_Budaya_Dasar_FINAL.docx dan 2026_RPS_PPKN)
       const romanNumerals = { 1: 'I', 2: 'II', 3: 'III', 4: 'IV', 5: 'V', 6: 'VI', 7: 'VII', 8: 'VIII' };
       const semNum = parseInt(sem, 10) || 1;
       const semRoman = romanNumerals[semNum] || 'I';
-      const kodeDokumen = c.kode_dokumen || `PPKn/${semRoman}/PKN/MKK PPKn`;
-      setTxt('prevKodeDokumen', kodeDokumen);
+      let rumpunCode = 'MKK PPKn';
+      const rUpper = (rumpun || '').toUpperCase();
+      if (rUpper.includes('MKWU') || rUpper.includes('WAJIB UMUM')) {
+        rumpunCode = 'MKWU';
+      } else if (rUpper.includes('MKK')) {
+        rumpunCode = 'MKK PPKn';
+      }
+      const kodeDokumen = c.kode_dokumen || `PPKn/${semRoman}/PKN/${rumpunCode}`;
+      const prevKdEl = document.getElementById('prevKodeDokumen');
+      if (prevKdEl) {
+        prevKdEl.innerHTML = kodeDokumen.replace('/MKK PPKn', '/MKK<br>PPKn');
+      }
       setTxt('prevTglPenyusunan', tgl);
       setTxt('prevDosenPengampu', dosen);
       setTxt('prevSyarat', c.syarat || 'Tidak ada');
